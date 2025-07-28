@@ -21,9 +21,9 @@ import { ModeToggle } from './ModeToggle'
 import Image from 'next/image'
 
 const menuItems = [
-    { name: 'Features', href: '#features', icon: Sparkles },
-    { name: 'Solution', href: '#solution', icon: Lightbulb },
-    { name: 'About', href: '#about', icon: Info }
+    { name: 'Features', href: '/features', icon: Sparkles },
+    { name: 'Solution', href: '/solution', icon: Lightbulb },
+    { name: 'About', href: '/about', icon: Info }
 ]
 
 export const HeroHeader = () => {
