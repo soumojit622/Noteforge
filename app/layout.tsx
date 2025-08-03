@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 const font = Nunito({ subsets: ["latin"] });
 
@@ -24,15 +25,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${font.className}`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <Toaster richColors />
-        </ThemeProvider>
+        <NuqsAdapter>
+
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+            <Toaster richColors />
+          </ThemeProvider>
+        </NuqsAdapter>
       </body>
     </html>
   );
