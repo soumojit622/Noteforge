@@ -69,7 +69,7 @@ const PasswordResetEmail = ({
                         <Section className="text-center my-8">
                             <Button
                                 href={resetUrl}
-                                className="bg-blue-600 hover:bg-blue-700 text-white text-base px-6 py-3 rounded-md font-semibold transition-colors duration-200"
+                                className="bg-red-600 hover:bg-red-700 text-white text-base px-6 py-3 rounded-md font-semibold transition-colors duration-200"
                             >
                                 Reset My Password
                             </Button>

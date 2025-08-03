@@ -1,110 +1,120 @@
-'use client'
+"use client";
 
-import { z } from 'zod'
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
-import { cn } from '@/lib/utils'
-import { authClient } from '@/lib/auth-client'
-import { signInUser } from '@/server/users'
-import { useRouter } from 'next/navigation'
-import Link from 'next/link'
+import { authClient } from "@/lib/auth-client";
+import { cn } from "@/lib/utils";
+import { signInUser } from "@/server/users";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
-import { toast } from 'sonner'
+import { toast } from "sonner";
 
-import { Mail, Lock, LogIn, Loader2 } from 'lucide-react'
-import { FaGoogle } from 'react-icons/fa'
+import {
+  Loader2,
+  Lock,
+  LogIn,
+  Mail
+} from "lucide-react";
+import { FaGoogle } from "react-icons/fa";
 
-import { Button } from '@/components/ui/button'
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle
-} from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
-} from '@/components/ui/form'
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
   email: z.string().email(),
-  password: z.string().min(8)
-})
+  password: z.string().min(8),
+});
 
 export function LoginForm({
   className,
   ...props
-}: React.ComponentProps<'div'>) {
-  const router = useRouter()
-  const [isLoading, setIsLoading] = useState(false)
+}: React.ComponentProps<"div">) {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: '',
-      password: ''
-    }
-  })
+      email: "",
+      password: "",
+    },
+  });
 
   const signIn = async () => {
     await authClient.signIn.social({
-      provider: 'google',
-      callbackURL: '/dashboard'
-    })
-  }
+      provider: "google",
+      callbackURL: "/dashboard",
+    });
+  };
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      setIsLoading(true)
-      const response = await signInUser(values.email, values.password)
+      setIsLoading(true);
+      const response = await signInUser(values.email, values.password);
       if (response.success) {
-        toast.success(response.message)
-        router.push('/dashboard')
+        toast.success(response.message);
+        router.push("/dashboard");
       } else {
-        toast.error(response.message)
+        toast.error(response.message);
       }
     } catch (error) {
-      console.error(error)
+      console.error(error);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   }
 
   return (
-    <div className={cn('flex flex-col gap-6', className)} {...props}>
+    <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
+          <CardTitle className="flex items-center gap-2 text-lg">
+            Login to your account
+          </CardTitle>
           <CardDescription>
-            Enter your email below to login to your account
+            Enter your email and password below to access your account
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <div className="flex flex-col gap-6">
+                {/* Email Field */}
                 <div className="grid gap-3">
                   <FormField
                     control={form.control}
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel className="flex items-center gap-2">
+                          <Mail className="size-4" />
+                          Email
+                        </FormLabel>
                         <FormControl>
                           <div className="relative">
-                            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
                             <Input
                               {...field}
-                              placeholder="m@example.com"
-                              className="pl-9"
+                              placeholder="you@example.com"
+                              className="pl-3"
                             />
                           </div>
                         </FormControl>
@@ -114,29 +124,32 @@ export function LoginForm({
                   />
                 </div>
 
+                {/* Password Field */}
                 <div className="grid gap-3">
                   <FormField
                     control={form.control}
                     name="password"
                     render={({ field }) => (
                       <FormItem>
-                        <div className="flex items-center">
-                          <FormLabel>Password</FormLabel>
+                        <div className="flex items-center justify-between">
+                          <FormLabel className="flex items-center gap-2">
+                            <Lock className="size-4" />
+                            Password
+                          </FormLabel>
                           <Link
                             href="/forgot-password"
-                            className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                            className="text-sm underline-offset-4 hover:underline"
                           >
-                            Forgot your password?
+                            Forgot password?
                           </Link>
                         </div>
                         <FormControl>
                           <div className="relative">
-                            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
                             <Input
                               {...field}
                               type="password"
-                              placeholder="password here"
-                              className="pl-9"
+                              placeholder="Enter your password"
+                              className="pl-3"
                             />
                           </div>
                         </FormControl>
@@ -146,6 +159,7 @@ export function LoginForm({
                   />
                 </div>
 
+                {/* Buttons */}
                 <div className="flex flex-col gap-3">
                   <Button type="submit" className="w-full" disabled={isLoading}>
                     {isLoading ? (
@@ -169,9 +183,13 @@ export function LoginForm({
                 </div>
               </div>
 
+              {/* Sign up link */}
               <div className="mt-4 text-center text-sm">
-                Don&apos;t have an account?{' '}
-                <Link href="/signup" className="underline underline-offset-4">
+                Don&apos;t have an account?{" "}
+                <Link
+                  href="/signup"
+                  className="inline-flex items-center gap-1 underline underline-offset-4"
+                >
                   Sign up
                 </Link>
               </div>
@@ -180,5 +198,5 @@ export function LoginForm({
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
