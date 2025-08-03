@@ -81,7 +81,7 @@ export default function HeroSection() {
                                     className="mt-10 flex items-center gap-3"
                                 >
                                     <Button asChild className="h-10.5 rounded-xl px-5 text-base">
-                                        <Link href="#get-started">
+                                        <Link href="/dashboard">
                                             <Pen className="size-4 mr-1" />
                                             Start Writing
                                         </Link>
