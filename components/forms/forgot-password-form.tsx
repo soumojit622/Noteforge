@@ -73,7 +73,7 @@ export function ForgotPasswordForm({
                 <CardHeader>
                     <CardTitle>Forgot your password?</CardTitle>
                     <CardDescription>
-                        Enter your email below and we'll send you a reset link.
+                        Enter your email below and we&#39;ll send you a reset link.
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -116,7 +116,7 @@ export function ForgotPasswordForm({
 
                             {/* Link to Sign Up */}
                             <div className="mt-4 text-center text-sm">
-                                Don&apos;t have an account?{" "}
+                                Don&#39;t have an account?{" "}
                                 <Link href="/signup" className="underline underline-offset-4">
                                     Sign up
                                 </Link>

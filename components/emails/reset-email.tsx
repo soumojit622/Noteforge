@@ -79,7 +79,7 @@ const PasswordResetEmail = ({
                         <Section className="mb-10">
                             <Text className="text-sm text-gray-600 mb-2">
                                 <Link2 className={iconStyle} />
-                                If the button doesn’t work, copy and paste this link into your browser:
+                                If the button doesn&apos;t work, copy and paste this link into your browser:
                             </Text>
                             <Text className="text-sm text-blue-600 break-words">{resetUrl}</Text>
                         </Section>
@@ -93,9 +93,9 @@ const PasswordResetEmail = ({
                                 Security Notice:
                             </Text>
                             <Text className="text-sm text-gray-600 leading-relaxed">
-                                • Didn’t request this? You can safely ignore this email.<br />
+                                • Didn&apos;t request this? You can safely ignore this email.<br />
                                 • This reset link expires in one hour and can be used only once.<br />
-                                • If you're receiving multiple reset emails, please contact support.
+                                • If you&apos;re receiving multiple reset emails, please contact support.
                             </Text>
                         </Section>
 
@@ -107,9 +107,9 @@ const PasswordResetEmail = ({
                             </Text>
                             <Text className="text-sm text-gray-600 leading-relaxed">
                                 Reach us at{" "}
-                                <a href="mailto:support@noteforge.in" className="text-blue-600 underline">
+                                <a href="mailto:support@NoteForge.in" className="text-blue-600 underline">
                                     <Mail className="inline-block size-4 mr-1" />
-                                    support@noteforge.in
+                                    support@NoteForge.in
                                 </a>{" "}
                                 or visit our Help Center.
                             </Text>

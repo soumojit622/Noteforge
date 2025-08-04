@@ -1,24 +1,22 @@
 'use client'
 
-import React from 'react'
-import Link from 'next/link'
-import { Logo } from '@/components/logo'
-import {
-    Menu,
-    X,
-    Sparkles,
-    Lightbulb,
-    BadgeDollarSign,
-    Info,
-    LogIn,
-    UserPlus,
-    Github
-} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import {
+    Github,
+    Info,
+    Lightbulb,
+    LogIn,
+    Menu,
+    Sparkles,
+    UserPlus,
+    X
+} from 'lucide-react'
 import { useScroll } from 'motion/react'
-import { ModeToggle } from './ModeToggle'
 import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
+import { ModeToggle } from './ModeToggle'
 
 const menuItems = [
     { name: 'Features', href: '/features', icon: Sparkles },
@@ -54,13 +52,13 @@ export const HeroHeader = () => {
                             <Link href="/" aria-label="home" className="flex items-center space-x-2">
                                 <Image
                                     src="/logo.svg"
-                                    alt="Noteforge Logo"
+                                    alt="NoteForge Logo"
                                     width={32}
                                     height={32}
                                     className="rounded-md"
                                 />
                                 <span className="text-lg font-semibold tracking-tight text-foreground">
-                                    Noteforge
+                                    NoteForge
                                 </span>
                             </Link>
 
@@ -127,7 +125,7 @@ export const HeroHeader = () => {
                                 {/* ✅ GitHub Button */}
                                 <Button asChild variant="outline" size="sm">
                                     <Link
-                                        href="https://github.com/soumojit622/Noteforge"
+                                        href="https://github.com/soumojit622/NoteForge"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center gap-1.5"

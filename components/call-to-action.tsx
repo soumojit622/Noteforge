@@ -10,12 +10,12 @@ export default function CallToAction() {
           Ready to Elevate Your Notes?
         </h2>
         <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-lg">
-          Start using Noteforge today to organize, plan, and create with clarity and speed.
+          Start using NoteForge today to organize, plan, and create with clarity and speed.
         </p>
 
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <Button asChild size="lg" className="gap-2">
-            <Link href="/get-started">
+            <Link href="/dashboard">
               <PenTool className="size-4" />
               Get Started
             </Link>

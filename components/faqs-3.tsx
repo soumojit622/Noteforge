@@ -23,7 +23,7 @@ export default function FAQsThree() {
             icon: 'calendar',
             question: 'Can I schedule reminders for my notes?',
             answer:
-                'Yes! Noteforge lets you attach due dates and reminders to any note. You’ll get timely notifications, so you never miss a task.',
+                'Yes! NoteForge lets you attach due dates and reminders to any note. You’ll get timely notifications, so you never miss a task.',
         },
         {
             id: 'item-2',
@@ -42,9 +42,9 @@ export default function FAQsThree() {
         {
             id: 'item-4',
             icon: 'languages',
-            question: 'Is Noteforge available in multiple languages?',
+            question: 'Is NoteForge available in multiple languages?',
             answer:
-                'Yes. Noteforge is currently available in English, Spanish, French, and Hindi. More languages are on the way!',
+                'Yes. NoteForge is currently available in English, Spanish, French, and Hindi. More languages are on the way!',
         },
         {
             id: 'item-5',

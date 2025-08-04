@@ -62,7 +62,7 @@ export default function FeaturesPage() {
             </Link>
             <div className="mx-auto max-w-6xl text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-                    Why Choose <span className="text-blue-400">Noteforge</span>?
+                    Why Choose <span className="text-blue-400">NoteForge</span>?
                 </h1>
                 <p className="text-muted-foreground max-w-xl mx-auto text-lg mb-16">
                     Our platform helps you focus, organize, and write better with delightful tools.

@@ -14,18 +14,18 @@ const NotFound = () => {
                 Page Not Found
             </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-md mb-6">
-                Sorry, the page you're looking for doesn't exist or has been moved. Let’s get you back on track.
+                Sorry, the page you&apos;re looking for doesn&apos;t exist or has been moved. Let&apos;s get you back on track.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-3">
                 <Link href="/" passHref>
                     <Button size="lg">
-                        <Home className="w-4 h-4 " />
+                        <Home className="w-4 h-4" />
                         Go back home
                     </Button>
                 </Link>
                 <Link href="/contact" passHref>
                     <Button variant="outline" size="lg">
-                        <Mail className="w-4 h-4 " />
+                        <Mail className="w-4 h-4" />
                         Contact Support
                     </Button>
                 </Link>

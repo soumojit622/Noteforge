@@ -18,7 +18,7 @@ const solutions = [
         icon: Layers3,
         title: 'Disorganized Notes',
         description:
-            'Noteforge organizes your content into clean folders, searchable tags, and intuitive structure.'
+            'NoteForge organizes your content into clean folders, searchable tags, and intuitive structure.'
     },
     {
         icon: Brain,
@@ -72,7 +72,7 @@ export default function SolutionPage() {
                     Solving Real Problems <span className="text-blue-400">with Clarity</span>
                 </h1>
                 <p className="text-muted-foreground max-w-xl mx-auto text-lg mb-16">
-                    From messy thoughts to polished ideas — Noteforge removes friction from your writing journey.
+                    From messy thoughts to polished ideas — NoteForge removes friction from your writing journey.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

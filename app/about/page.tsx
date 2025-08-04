@@ -1,25 +1,39 @@
 'use client'
 
-import React from 'react'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import { ArrowLeft, Rocket, Target } from 'lucide-react'
 import Image from 'next/image'
-import { Target, Rocket, Heart } from 'lucide-react'
+import Link from 'next/link'
 
 export default function AboutPage() {
     return (
         <main className="min-h-screen bg-background text-foreground py-24 px-6">
+            {/* Back to Home button */}
+            <Link
+                href="/"
+                className={cn(
+                    buttonVariants({ variant: 'outline', size: 'sm' }),
+                    'absolute top-6 left-6 flex items-center gap-1 text-sm'
+                )}
+            >
+                <ArrowLeft className="w-4 h-4" />
+                Home
+            </Link>
+
             <div className="mx-auto max-w-4xl text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-                    About <span className="text-blue-400">Noteforge</span>
+                    About <span className="text-blue-400">NoteForge</span>
                 </h1>
                 <p className="text-muted-foreground max-w-2xl mx-auto text-lg mb-12">
-                    Noteforge is built for thinkers, writers, and creators. Whether you're a student, a professional,
+                    NoteForge is built for thinkers, writers, and creators. Whether you&apos;re a student, a professional,
                     or an artist — our platform helps you organize, express, and grow your ideas without friction.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
                     {/* Illustration */}
                     <Image
-                        src="/about-illustration.svg" // Replace with your own image
+                        src="/aboutus.jpg"
                         alt="About illustration"
                         width={500}
                         height={500}
@@ -44,16 +58,15 @@ export default function AboutPage() {
                                 <h2 className="text-xl font-semibold">Our Vision</h2>
                             </div>
                             <p className="text-muted-foreground">
-                                We imagine a world where creativity flows freely, and Noteforge becomes the trusted companion
+                                We imagine a world where creativity flows freely, and NoteForge becomes the trusted companion
                                 for every thinker on their journey of creation.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                {/* Footer */}
+                {/* Footer Note */}
                 <div className="mt-20 flex items-center justify-center gap-2 text-sm text-muted-foreground">
-
                     <span className="text-foreground text-md">
                         Made with <span className="inline-block">💙</span> by Soumojit Banerjee
                     </span>

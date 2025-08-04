@@ -1,15 +1,5 @@
 "use client";
 
-import {
-    useEditor,
-    EditorContent,
-    useEditorState,
-    type JSONContent,
-} from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import Document from "@tiptap/extension-document";
-import Paragraph from "@tiptap/extension-paragraph";
-import Text from "@tiptap/extension-text";
 import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
@@ -17,27 +7,36 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { updateNote } from "@/server/notes";
+import Document from "@tiptap/extension-document";
+import Paragraph from "@tiptap/extension-paragraph";
+import Text from "@tiptap/extension-text";
 import {
-    Undo,
-    Redo,
+    EditorContent,
+    useEditor,
+    useEditorState,
+    type JSONContent,
+} from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import {
+    AlignCenter,
+    AlignJustify,
+    AlignLeft,
+    AlignRight,
     Bold,
-    Italic,
-    Strikethrough,
+    ChevronDown,
     Code,
-    Underline,
+    Italic,
     Link,
     List,
     ListOrdered,
-    AlignLeft,
-    AlignCenter,
-    AlignRight,
-    AlignJustify,
-    Plus,
-    ChevronDown,
-    Superscript,
+    Redo,
+    Strikethrough,
     Subscript,
+    Superscript,
+    Underline,
+    Undo
 } from "lucide-react";
-import { updateNote } from "@/server/notes";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
 interface RichTextEditorProps {

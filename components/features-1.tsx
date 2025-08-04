@@ -11,7 +11,7 @@ export default function Features() {
             Everything You Need to Write Smarter
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Noteforge is built to be fast, flexible, and focused — giving you complete control over your notes.
+            NoteForge is built to be fast, flexible, and focused — giving you complete control over your notes.
           </p>
         </div>
 
@@ -26,7 +26,7 @@ export default function Features() {
             </CardHeader>
             <CardContent>
               <p className="text-sm">
-                Adjust layouts, themes, and features to match your exact workflow — Noteforge adapts to you.
+                Adjust layouts, themes, and features to match your exact workflow — NoteForge adapts to you.
               </p>
             </CardContent>
           </Card>
