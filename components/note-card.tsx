@@ -1,6 +1,16 @@
 "use client";
 
 import {
+    Card,
+    CardContent,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import { Note } from "@/db/schema";
+import Link from "next/link";
+import { Button } from "./ui/button";
+import {
     AlertDialog,
     AlertDialogAction,
     AlertDialogCancel,
@@ -11,27 +21,17 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import { Notebook } from "@/db/schema";
-import { deleteNotebook } from "@/server/notebooks";
-import { AlertCircle, Check, Eye, FileText, Loader2, NotebookIcon, Trash2, X } from "lucide-react";
-import Link from "next/link";
+import { AlertCircle, Check, Eye, FileText, Loader2, Trash2, X } from "lucide-react";
+import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { toast } from "sonner";
-import { Button } from "./ui/button";
+import { deleteNote } from "@/server/notes";
 
 interface NotebookCardProps {
-    notebook: Notebook;
+    note: Note;
 }
 
-export default function NotebookCard({ notebook }: NotebookCardProps) {
+export default function NoteCard({ note }: NotebookCardProps) {
     const router = useRouter();
 
     const [isDeleting, setIsDeleting] = useState(false);
@@ -40,42 +40,39 @@ export default function NotebookCard({ notebook }: NotebookCardProps) {
     const handleDelete = async () => {
         try {
             setIsDeleting(true);
-            const response = await deleteNotebook(notebook.id);
+            const response = await deleteNote(note.id);
 
             if (response.success) {
-                toast.success("Notebook deleted successfully");
+                toast.success("Note deleted successfully");
                 router.refresh();
             }
         } catch {
-            toast.error("Failed to delete notebook");
+            toast.error("Failed to delete note");
         } finally {
             setIsDeleting(false);
             setIsOpen(false);
         }
     };
+
     return (
         <Card className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-md transition-shadow hover:shadow-lg">
             <CardHeader>
                 <CardTitle className="flex items-center justify-between text-lg font-semibold text-zinc-800 dark:text-zinc-100">
                     <span className="inline-flex items-center gap-2">
-                        <NotebookIcon className="size-5 text-blue-600 dark:text-blue-400" />
-                        {notebook.name}
-                    </span>
-                    <span className="ml-3 inline-flex items-center gap-1 rounded-full bg-blue-100 dark:bg-blue-900 px-2.5 py-0.5 text-xs font-medium text-blue-700 dark:text-blue-300">
-                        <FileText className="size-3.5" />
-                        {notebook.notes?.length ?? 0} {notebook.notes?.length === 1 ? "note" : "notes"}
+                        <FileText className="size-5 text-blue-600 dark:text-blue-400" />
+                        {note.title}
                     </span>
                 </CardTitle>
             </CardHeader>
 
             <CardContent className="pt-1">
-                <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                    A dedicated space to capture, organize, and manage your ideas efficiently.
+                <p className="text-sm text-zinc-500 dark:text-zinc-400 italic">
+                    A personal note to capture your thoughts and ideas.
                 </p>
             </CardContent>
 
             <CardFooter className="mt-4 flex justify-end gap-3">
-                <Link href={`/dashboard/notebook/${notebook.id}`}>
+                <Link href={`/dashboard/notebook/${note.notebookId}/note/${note.id}`}>
                     <Button
                         variant="outline"
                         className="text-sm flex items-center gap-1 hover:border-blue-500 hover:text-blue-600 transition-colors"
@@ -112,7 +109,7 @@ export default function NotebookCard({ notebook }: NotebookCardProps) {
                                 Confirm Deletion
                             </AlertDialogTitle>
                             <AlertDialogDescription className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                                Are you sure you want to permanently delete this notebook? This action cannot be undone and will remove all notes associated with it.
+                                Are you sure you want to permanently delete this note? This action cannot be undone.
                             </AlertDialogDescription>
                         </AlertDialogHeader>
 
@@ -130,11 +127,10 @@ export default function NotebookCard({ notebook }: NotebookCardProps) {
                                 Confirm
                             </AlertDialogAction>
                         </AlertDialogFooter>
-
                     </AlertDialogContent>
-
                 </AlertDialog>
             </CardFooter>
         </Card>
+
     );
 }
