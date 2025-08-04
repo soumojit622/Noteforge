@@ -2,7 +2,7 @@
 <p align="center"><i>Your Digital Brain for Smarter Notes</i></p>
 
 <p align="center">
-  <img src="./public/preview.png" alt="NoteForge Preview" width="75%" />
+  <img src="https://github.com/soumojit622/Noteforge/blob/master/public/banner.png" alt="NoteForge Preview" width="75%" />
 </p>
 
 ---
@@ -45,23 +45,6 @@
 
 ---
 
-## 📸 Screenshots
-
-<table>
-  <tr>
-    <td align="center"><strong>Hero Section</strong></td>
-    <td align="center"><strong>Dashboard (Dark)</strong></td>
-    <td align="center"><strong>Dashboard (Light)</strong></td>
-  </tr>
-  <tr>
-    <td><img src="./public/screens/hero.png" width="100%"/></td>
-    <td><img src="./public/screens/dark.png" width="100%"/></td>
-    <td><img src="./public/screens/light.png" width="100%"/></td>
-  </tr>
-</table>
-
----
-
 ## 💡 Use Cases
 
 - 🧑‍💻 **Developers** – Save code snippets, plan features, document thoughts  
@@ -91,7 +74,7 @@
 
 ---
 
-## 👨‍🎓 Built With ❤️ by [Soumojit Banerjee](https://github.com/your-username)
+## 👨‍🎓 Built With ❤️ by [Soumojit Banerjee](https://github.com/soumojit622)
 
 > "Creativity is intelligence having fun." – *Albert Einstein*
 
@@ -100,10 +83,10 @@
 ## 🔗 Connect with Me
 
 <p align="center">
-  <a href="https://github.com/your-username">
+  <a href="https://github.com/soumojit622">
     <img src="https://img.shields.io/badge/-GitHub-181717?style=flat&logo=github&logoColor=white" />
   </a>
-  <a href="https://linkedin.com/in/your-profile">
+  <a href="https://www.linkedin.com/in/soumojit-banerjee-4914b3228/">
     <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" />
   </a>
   <a href="https://your-portfolio.com">
